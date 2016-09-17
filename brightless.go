@@ -10,9 +10,11 @@ import (
 )
 
 // Constants
-var minBrightness float64 = 0.1
-var maxBrightness float64 = 1.0
-var deltaBrightness float64 = 0.1
+const (
+	minBrightness   float64 = 0.1
+	maxBrightness   float64 = 1.0
+	deltaBrightness float64 = 0.1
+)
 
 // Utility functions
 func checkUserErr(err error) {
@@ -40,8 +42,7 @@ func findFirst(lines []string, text string) (string, error) {
 }
 
 func usage() {
-	fmt.Printf(
-		`
+	fmt.Printf(`
 Usage: brightless [DELTA]
 Modify the monitor brightness, adding DELTA to it.
 This program allows brightness to be between %.2f and %.2f.
@@ -58,11 +59,10 @@ Examples
 
   - To set full dimming
       brightness -1
-`, minBrightless, maxBrightness)
+`, minBrightness, maxBrightness)
 }
 
 func main() {
-
 	if len(os.Args) != 2 {
 		usage()
 		os.Exit(1)
@@ -94,5 +94,4 @@ func main() {
 
 	// Set brightness
 	checkErr(exec.Command("xrandr", "--output", monitor, "--brightness", fmt.Sprintf("%f", newBrightness)).Run())
-	return
 }
