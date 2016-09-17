@@ -42,23 +42,23 @@ func findFirst(lines []string, text string) (string, error) {
 func usage() {
 	fmt.Printf(
 		`
-Usage: brightness [DELTA]
+Usage: brightless [DELTA]
 Modify the monitor brightness, adding DELTA to it.
 This program allows brightness to be between %.2f and %.2f.
 
 Examples
   - To increase brightness by 1/10th
-      brightness 0.1
+      brightless 0.1
 
   - To dim monitor by 1/10th
-      brightness -0.1
+      brightless -0.1
 
   - To set full brightness
-      brightness 1
+      brightless 1
 
   - To set full dimming
       brightness -1
-`, minBrightness, maxBrightness)
+`, minBrightless, maxBrightness)
 }
 
 func main() {
